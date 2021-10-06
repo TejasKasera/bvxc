@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial scale=1"/>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="dist/sweetalert.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase.js"></script>
+</head>
+
+<body>
+    <section>
+        <div class="box">
+            <div class="form">
+                     <h3>Details</h3>  
+        <form class = "contact-form">
+          <div class="inputBx">
+              <input class="name" type = "text" placeholder="Name" required>
+              <img src="name.png" style="width: 20px;">
+          </div>
+  
+      <div class="inputBx">
+            <input class="email" name="email" type = "text" placeholder="Email" required>
+            <img src="email.png" style="width: 20px;">
+        </div>
+  
+        <div class="inputBx">
+          <input class="number" name="dhfgdjg" type = "text" placeholder="Phone number" required>
+          <img src="call.png" style="width: 20px;">
+      </div>
+  
+      <div class="inputBx">
+          <input class="city" name="city" type = "text" placeholder="City" required>
+          <img src="city.png" style="width: 20px;">
+          </div>
+      
+          <div class="inputBx">
+        <input class="state" name="State" type = "text" placeholder="State" required>
+        <img src="address.png" style="width: 20px;">
+        </div>
+    
+        <div class="inputBx">
+      <input type="submit" value="submit">
+        </div>
+  
+        
+  
+        </form>
+  
+      
+    </div>
+    </div>
+    
+
+    <h1><b>Remaining Time</b></h1>
+    <div id="clockdiv">
+        <div>
+            <span class="days" id="day"></span>
+            <div class="smalltext">Days</div>
+        </div>
+        <div>
+            <span class="hours" id="hour"></span>
+            <div class="smalltext">Hour</div>
+        </div>
+        <div>
+            <span class="minutes" id="minute"></span>
+            <div class="smalltext">Min</div>
+        </div>
+        <div>
+            <span class="seconds" id="second"></span>
+            <div class="smalltext">Sec</div>
+        </div>
+    </div>
+
+    <p font-size=50 id="demo"></p>
+
+</section>
+
+<p>If you want to buy this Akhand Jyot then only you send your details.</p>
+<h2>Keep in mind that if you have fill all the information then once you press the submit button then all your details will be sent.</h2>
+<script src="app.js"></script>
+
+<script type="text/javascript" src="vanilla-tilt.js"></script>
+<script type="text/javascript">
+	VanillaTilt.init(document.querySelector(".box"), {
+		max: 25,
+		speed: 400,
+    glare: true,
+    "max-glare": 0.2 
+	});
+    </script>
+
+    <script>
+        var deadline = new Date("October 6, 2021 14:30:00").getTime();
+
+        var x = setInterval(function() {
+
+            var now = new Date().getTime();
+            var t = deadline - now;
+            var days = Math.floor(t / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((t % (1000 * 60)) / 1000);
+            document.getElementById("day").innerHTML = days;
+            document.getElementById("hour").innerHTML = hours;
+            document.getElementById("minute").innerHTML = minutes;
+            document.getElementById("second").innerHTML = seconds;
+            if (t < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "TIME UP";
+                document.getElementById("day").innerHTML = '0';
+                document.getElementById("hour").innerHTML = '0';
+                document.getElementById("minute").innerHTML = '0';
+                document.getElementById("second").innerHTML = '0';
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>
